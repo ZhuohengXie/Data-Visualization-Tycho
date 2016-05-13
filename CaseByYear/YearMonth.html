@@ -1,0 +1,35 @@
+<!----------------------------------------------------------------->
+<!-- AUTOMATICALLY GENERATED CODE - PLEASE EDIT TEMPLATE INSTEAD -->
+<!----------------------------------------------------------------->
+<head>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script>
+  </head>
+  
+  <h4 id="SubHeader1"><h4>
+<div id="chartContainer2">
+
+  <script type="text/javascript">
+  
+  var lowerCase = decodeURI(parent.document.URL.substring(parent.document.URL.indexOf('#')+1, parent.document.URL.length));
+var StateName = lowerCase.toUpperCase();
+
+  var element = document.getElementById("SubHeader1");
+element.innerHTML = "Explore how the 4 quarters in the year affect the yearly case detection for " + StateName;
+
+
+    var svg = dimple.newSvg("#chartContainer2", 890, 400);
+	
+    d3.tsv("testing.tsv", function (data) {
+        var myChart = new dimple.chart(svg, data);
+myChart.setBounds(60, 30, 810, 305)
+var x = myChart.addCategoryAxis("x", "YEAR");
+ x.addOrderRule("MONTH");
+myChart.addMeasureAxis("y", StateName);
+myChart.addSeries(null, dimple.plot.bar);
+ myChart.setStoryboard("QUARTER");
+myChart.draw();
+	
+    });
+  </script>
+</div>
