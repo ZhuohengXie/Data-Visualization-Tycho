@@ -1,0 +1,32 @@
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script>
+  <style>
+  #All_1967___{
+    opacity: 1;
+color: red;
+fill: initial;
+stroke-linecap: round;
+stroke-width: unset;
+  }
+  </style>
+<div id="chartContainerLineYear">
+  <script src="/lib/d3.v3.4.8.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script>
+  <script type="text/javascript">
+    var svg = dimple.newSvg("#chartContainerLineYear", 790, 400);
+    d3.tsv("testing.tsv", function (data) {
+    
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 30, 705, 305);
+      var x = myChart.addCategoryAxis("x", "YEAR");
+	  myChart.addColorAxis("TOTAL", ["#C4D79B", "#DA9694", "#FABF8F"]);
+      x.addOrderRule("YEAR");
+      myChart.addMeasureAxis("y", "TOTAL");
+	  
+      var s = myChart.addSeries("", dimple.plot.line);
+	  s.interpolation = "cardinal";
+	  s.lineMarkers = true;
+      myChart.draw();
+    });
+  </script>
+</div>

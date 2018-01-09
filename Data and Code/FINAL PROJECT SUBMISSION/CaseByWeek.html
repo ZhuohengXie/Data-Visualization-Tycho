@@ -1,0 +1,31 @@
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script>
+  <style>
+  #All_32___{
+  opacity: 1;
+color: black;
+fill: initial;
+stroke-linecap: round;
+stroke-width: unset;
+  }
+  </style>
+<div id="chartContainerLineWeek">
+  <script src="/lib/d3.v3.4.8.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script>
+  <script type="text/javascript">
+    var svg = dimple.newSvg("#chartContainerLineWeek", 790, 400);
+    d3.tsv("testing.tsv", function (data) {
+      var myChart = new dimple.chart(svg, data);
+     myChart.setBounds(60, 30, 705, 305);
+      var x = myChart.addCategoryAxis("x", "WEEK");
+ x.addOrderRule("WEEK");
+      myChart.addMeasureAxis("y", "TOTAL");
+      var s = myChart.addSeries("", dimple.plot.line);
+	  	  s.interpolation = "cardinal";
+		   s.lineMarkers = true;
+		   myChart.assignColor("32", "black", "red", 1);
+      myChart.draw();
+
+    });
+  </script>
+</div>
